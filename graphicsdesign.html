@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#13001e">
+    <title>Zikirah - Graphic Design Portfolio</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .portfolio-showcase {
+            padding: 120px 0 60px 0;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .portfolio-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .design-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .design-wrapper {
+            position: relative;
+            padding-bottom: 141.43%; /* A2 Aspect Ratio (594/420 = 1.4143) */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .design-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .design-item:hover .design-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .design-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .design-item:hover .design-overlay {
+            transform: translateY(0);
+        }
+
+        .design-overlay h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .design-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .design-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        .overlay-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .view-more-btn {
+            padding: 5px 10px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .view-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 10px var(--glow-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gradient-canvas"></canvas>
+
+    <header class="sticky-header">
+        <div class="container">
+            <h1>Zikirah</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="portfolio-showcase">
+        <div class="container">
+            <div class="portfolio-header">
+                <h1 class="glow">Graphic Design Portfolio</h1>
+                <p>Exploring creativity through visual storytelling and brand identity</p>
+            </div>
+
+            <div class="portfolio-categories">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Poster Designs</button>
+                <button class="category-btn">Social Media</button>
+                <button class="category-btn">Marketing</button>
+            </div>
+
+            <div class="design-grid">
+                <div class="design-item glow">
+                    <div class="design-wrapper">
+                        <img src="images/design1.jpg" alt="Brand Identity Design">
+                        <div class="design-overlay">
+                            <h3>Poster Designs</h3>
+                            <p>Poster Designs Of Anime, Events, Cars Etc</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-item glow">
+                    <div class="design-wrapper">
+                        <img src="images/design2.jpg" alt="Social Media Campaign">
+                        <div class="design-overlay">
+                            <h3>Social Media Campaign</h3>
+                            <p>Instagram story templates and post designs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-item glow">
+                    <div class="design-wrapper">
+                        <img src="images/design3.jpg" alt="Marketing Materials">
+                        <div class="design-overlay">
+                            <h3>Marketing Materials</h3>
+                            <p>Promotional materials for product launch</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="index.html" class="back-button glow">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Zikirah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+    <script>
+        // Category filter functionality
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Add your filtering logic here
+                // For now, it's just visual feedback
+            });
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const designItems = document.querySelectorAll('.design-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            designItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+            <script src="./js/backgroundAnimation.js"></script>
+
+</body>
+</html>

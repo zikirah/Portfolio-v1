@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#13001e">
+    <title>Zikirah - Video Editing Portfolio</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .portfolio-showcase {
+            padding: 120px 0 60px 0;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .portfolio-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .video-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .video-info h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .video-info p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .video-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .video-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-button:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gradient-canvas"></canvas>
+
+    <header class="sticky-header">
+        <div class="container">
+            <h1>Zikirah</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="portfolio-showcase">
+        <div class="container">
+            <div class="portfolio-header">
+                <h1 class="glow">Video Editing Portfolio</h1>
+                <p>Crafting compelling visual stories through dynamic video editing</p>
+            </div>
+
+            <div class="portfolio-categories">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Commercial</button>
+                <button class="category-btn">Music Videos</button>
+                <button class="category-btn">Social Media</button>
+                <button class="category-btn">Corporate</button>
+            </div>
+
+            <div class="video-grid">
+                <!-- Replace with your actual video embeds -->
+                <div class="video-item glow">
+                    <div class="video-wrapper">
+                        <!-- Replace with your YouTube/Vimeo embed code -->
+                        <iframe src="https://www.youtube.com/embed/your-video-id" 
+                                title="Commercial Project" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Commercial Project</h3>
+                        <p>A dynamic commercial video showcasing product features and brand story</p>
+                        <div class="video-tags">
+                            <span class="video-tag">Commercial</span>
+                            <span class="video-tag">Motion Graphics</span>
+                            <span class="video-tag">Color Grading</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-item glow">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/your-video-id-2" 
+                                title="Music Video" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Music Video Edit</h3>
+                        <p>Creative music video editing with dynamic transitions and effects</p>
+                        <div class="video-tags">
+                            <span class="video-tag">Music Video</span>
+                            <span class="video-tag">Visual Effects</span>
+                            <span class="video-tag">Transitions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-item glow">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/your-video-id-3" 
+                                title="Social Media Content" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Social Media Campaign</h3>
+                        <p>Engaging social media content optimized for various platforms</p>
+                        <div class="video-tags">
+                            <span class="video-tag">Social Media</span>
+                            <span class="video-tag">Short Form</span>
+                            <span class="video-tag">Viral</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more video items as needed -->
+            </div>
+        </div>
+    </section>
+
+    <a href="index.html" class="back-button glow">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Zikirah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+    <script>
+        // Category filter functionality
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Add your filtering logic here
+                // For now, it's just visual feedback
+            });
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoItems = document.querySelectorAll('.video-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            videoItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#13001e">
+    <title>Zikirah - AI Solutions Portfolio</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .portfolio-showcase {
+            padding: 120px 0 60px 0;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .portfolio-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .ai-project {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .ai-project:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .project-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .project-title {
+            flex-grow: 1;
+        }
+
+        .project-title h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: white;
+        }
+
+        .project-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-link:hover {
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            transform: translateY(-2px);
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-button:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .ai-grid {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gradient-canvas"></canvas>
+
+    <header class="sticky-header">
+        <div class="container">
+            <h1>Zikirah</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="portfolio-showcase">
+        <div class="container">
+            <div class="portfolio-header">
+                <h1 class="glow">AI Solutions Portfolio</h1>
+                <p>Innovative AI-powered Projects!</p>
+            </div>
+
+            <div class="portfolio-categories">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">AI Chatbot</button>
+                <button class="category-btn">Automation</button>
+                <button class="category-btn">Machine Learning</button>
+            </div>
+
+            <div class="ai-grid">
+                <div class="ai-project glow">
+                    <div class="project-image">
+                        <img src="images/ai-project1.jpg" alt="AI Project 1">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="project-title">
+                                <h3>Zorah AI Chatbot</h3>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Zorah is an AI chatbot that simplifies customer interactions, offering support across platforms with features like inquiries, product recommendations, appointments, and live agent connections.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Chatbot</span>
+                            <span class="project-tag">GPT</span>
+                            <span class="project-tag">Business</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="zorahchatbot.html" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ai-project glow">
+                    <div class="project-image">
+                        <img src="images/ai-project2.jpg" alt="AI Project 2">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="project-title">
+                                <h3>Computer Vision System</h3>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Real-time object detection and tracking system using deep learning models for video analysis.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">Deep Learning</span>
+                            <span class="project-tag">Real-time</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-play-circle"></i> Demo Video</a>
+                            <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ai-project glow">
+                    <div class="project-image">
+                        <img src="images/ai-project3.jpg" alt="AI Project 3">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="project-title">
+                                <h3>Workflow Automation</h3>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            AI-powered workflow automation system for streamlining business processes and improving efficiency.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Business Process</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-desktop"></i> Platform</a>
+                            <a href="#" class="project-link"><i class="fas fa-book"></i> Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="index.html" class="back-button glow">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Zikirah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+    <script>
+        // Category filter functionality
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Add your filtering logic here
+                // For now, it's just visual feedback
+            });
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const aiProjects = document.querySelectorAll('.ai-project');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            aiProjects.forEach(project => {
+                project.style.opacity = '0';
+                project.style.transform = 'translateY(20px)';
+                project.style.transition = 'all 0.6s ease';
+                observer.observe(project);
+            });
+        });
+    </script>
+</body>
+</html>
