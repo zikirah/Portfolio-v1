@@ -1,0 +1,344 @@
+:root {
+    --gradient-1: #6a11cb;
+    --gradient-2: #2575fc;
+    --gradient-3: #c471ed;
+    --glow-color: rgba(147, 51, 234, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #13001e; /* Dark background */
+    color: #fff; /* White text */
+    line-height: 1.6;
+    background: linear-gradient(-45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-1));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background: rgba(19, 0, 30, 0.8);
+    padding: 20px 0;
+    z-index: 1000;
+}
+
+.sticky-header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Section Styles */
+.section-title {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 2.5em;
+}
+
+/* Glow Effect */
+.glow {
+    position: relative;
+}
+
+.glow::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+    border-radius: inherit;
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.glow:hover::before {
+    opacity: 1;
+}
+
+/* Home Section */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#home h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+#home h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.social-links a {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+/* Services Section */
+#services {
+    padding: 100px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card i {
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Portfolio Section */
+#portfolio {
+    padding: 100px 0;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s ease;
+}
+
+.portfolio-item.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--glow-color);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+/* Contact Section Styles */
+.chatbot-showcase {
+    padding: 120px 0 60px 0;
+    min-height: calc(100vh - 200px);
+}
+
+.chatbot-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.chatbot-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.chatbot-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.contact-area {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px; /* Add padding */
+    margin: 20px 0; /* Space above and below */
+}
+
+.contact-area h2 {
+    text-align: center; /* Center the heading */
+    color: white; /* White text color */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.contact-form label {
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Make labels bold */
+    color: white; /* White label color */
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px; /* Add padding inside inputs */
+    margin-bottom: 15px; /* Space between inputs */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Increase font size */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    color: white; /* White text color */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.btn {
+    background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2)); /* Gradient background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 12px 20px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Increase font size */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background color and scale */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.btn:active {
+    transform: scale(0.95); /* Slightly shrink the button when clicked */
+}
+
+#result {
+    margin-top: 15px; /* Space above result message */
+    font-size: 14px; /* Smaller font size */
+    color: white; /* White text color */
+    text-align: center; /* Center the result message */
+}
+
+/* Footer Styles */
+footer {
+    background: rgba(19, 0, 30, 0.8);
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    #home h2 {
+        font-size: 36px;
+    }
+
+    #home h3 {
+        font-size: 20px;
+    }
+}
