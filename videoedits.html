@@ -165,57 +165,69 @@
 
             <div class="portfolio-categories">
                 <button class="category-btn active">All</button>
-                <button class="category-btn">Lyrics Videos</button>
-                <button class="category-btn">Shorts</button>
+                <button class="category-btn">Commercial</button>
+                <button class="category-btn">Music Videos</button>
                 <button class="category-btn">Social Media</button>
+                <button class="category-btn">Corporate</button>
             </div>
 
             <div class="video-grid">
-            
+                <!-- Replace with your actual video embeds -->
                 <div class="video-item glow">
                     <div class="video-wrapper">
                         <!-- Replace with your YouTube/Vimeo embed code -->
-                        <iframe src="https://www.youtube.com/embed/video-id" 
+                        <iframe src="https://www.youtube.com/embed/your-video-id" 
                                 title="Commercial Project" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen></iframe>
                     </div>
                     <div class="video-info">
-                        <h3>Shorts Videos</h3>
-                        <p>Engaging Content Generation Through Shorts </p>
+                        <h3>Commercial Project</h3>
+                        <p>A dynamic commercial video showcasing product features and brand story</p>
                         <div class="video-tags">
-                            <span class="video-tag">shorts</span>
-                            <span class="video-tag">engaging</span>
-                            <span class="video-tag">Viral</span>
+                            <span class="video-tag">Commercial</span>
+                            <span class="video-tag">Motion Graphics</span>
+                            <span class="video-tag">Color Grading</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="video-item glow">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/video-id-2" 
-                                title="Music Video" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3>Lyrics Video Edit</h3>
-                        <p>Creative Lyrics video edits with dynamic text effects and visuals</p>
-                        <div class="video-tags">
-                            <span class="video-tag">Lyrics Video</span>
-                            <span class="video-tag">Visual Effects</span>
-                            <span class="video-tag">Text Effects</span>
-                        </div>
-                    </div>
-                </div
-                
-                <div class="video-item glow">
-                    <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/GgRZ0ixmS9Y" 
                                 title="Music Video Edit" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen></iframe>
-                <!--  more video items as needed -->
+                    </div>
+                    <div class="video-info">
+                        <h3>Music Video Edit</h3>
+                        <p>Creative music video editing with dynamic transitions and effects</p>
+                        <div class="video-tags">
+                            <span class="video-tag">Music Video</span>
+                            <span class="video-tag">Visual Effects</span>
+                            <span class="video-tag">Transitions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-item glow">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/your-video-id-3" 
+                                title="Social Media Content" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Social Media Campaign</h3>
+                        <p>Engaging social media content optimized for various platforms</p>
+                        <div class="video-tags">
+                            <span class="video-tag">Social Media</span>
+                            <span class="video-tag">Short Form</span>
+                            <span class="video-tag">Viral</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more video items as needed -->
             </div>
         </div>
     </section>
@@ -232,14 +244,14 @@
 
     <script src="./js/script.js"></script>
     <script>
-        // For Category filter functionality
+        // Category filter functionality
         document.querySelectorAll('.category-btn').forEach(button => {
             button.addEventListener('click', () => {
-                // To Remove active class from all buttons
+                // Remove active class from all buttons
                 document.querySelectorAll('.category-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
-                // To Add active class to clicked button
+                // Add active class to clicked button
                 button.classList.add('active');
                 
                 // Add your filtering logic here
